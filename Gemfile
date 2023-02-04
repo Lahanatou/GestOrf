@@ -22,6 +22,8 @@ gem 'devise'
 gem 'rails_admin', '~> 3.0'
 gem 'cancancan', '~> 3.3.0'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'carrierwave', '~> 2.0'
+gem 'mini_magick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

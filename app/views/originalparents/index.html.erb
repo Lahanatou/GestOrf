@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Originalparents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @originalparents.each do |originalparent| %>
+      <tr>
+        <td><%= originalparent.name %></td>
+        <td><%= originalparent.description %></td>
+        <td><%= originalparent.phone %></td>
+        <td><%= link_to 'Show', originalparent %></td>
+        <td><%= link_to 'Edit', edit_originalparent_path(originalparent) %></td>
+        <td><%= link_to 'Destroy', originalparent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Originalparent', new_originalparent_path %>

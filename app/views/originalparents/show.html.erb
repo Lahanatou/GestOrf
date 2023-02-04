@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
+
+
 <style>
   strong{
     font-size: 20px;
@@ -20,32 +22,22 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @orphan.name %>
+  <%= @originalparent.name %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @orphan.description %>
+  <%= @originalparent.description %>
 </p>
 
 <p>
-  <strong>Age:</strong>
-  <%= @orphan.age %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @orphan.image.url %>
+  <strong>Phone:</strong>
+  <%= @originalparent.phone %>
 </p>
 
 
 
+<%= link_to 'Edit', edit_originalparent_path(@originalparent) %> |
+<%= link_to 'Back', originalparents_path %> |
 
-<p>
-  <strong>Sex:</strong>
-  <%= @orphan.sex %>
-</p>
-
-
-<%= link_to 'Edit', edit_orphan_path(@orphan) %> |
-<%= link_to 'Back', orphans_path %>
+<%= link_to "Retour sur la page de création d'un nouveau orphan", new_orphan_path %>

@@ -1,6 +1,9 @@
-<h1>Editing Orphan</h1>
-
+<div class="text-center">
+  <h1>Modification des informations sur orphan</h1>
+</div>
 <%= render 'form', orphan: @orphan %>
-
-<%= link_to 'Show', @orphan %> |
-<%= link_to 'Back', orphans_path %>
+<br><br>
+<div class="text-center">
+  <td><%= link_to 'Afficher', @orphan, class: 'btn btn-primary text-light' %> </td>|
+  <td><%= link_to 'Retour', orphans_path, class: 'btn btn-primary text-light' %></td>
+</div>

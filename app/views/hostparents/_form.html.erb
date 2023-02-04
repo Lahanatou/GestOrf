@@ -1,0 +1,31 @@
+<%= form_with(model: hostparent, local: true) do |form| %>
+  <% if hostparent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hostparent.errors.count, "error") %> prohibited this hostparent from being saved:</h2>
+
+      <ul>
+        <% hostparent.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adress %>
+    <%= form.text_field :adress %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.number_field :phone %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

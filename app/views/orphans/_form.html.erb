@@ -27,16 +27,43 @@
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.text_area :image %>
+    <h3><%= form.label :image %></h3>
+
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
   </div>
 
   <div class="field">
     <%= form.label :sex %>
     <%= form.text_field :sex %>
   </div>
+  <div class="field">
+    <%= form.label :Information_sur_son_origine %>
+    <%= form.select :originalparent_id, Originalparent.all.collect { |p| [p.name, p.id]}, class: "search_label form-control", prompt: "sélectionne le parent d'origine ici" %>
+
+    <strong>Ou</strong>
+    <td><%= link_to "Créer Informations de sa famille d'origine ICI", new_originalparent_path %></td>
+
+  </div>
+
+
+  <div class="field">
+    <%= form.label :Information_sur_sa_destination %>
+    <%= form.select :hostparent_id, Hostparent.all.collect { |p| [p.name, p.id]}, class: "search_label form-control", prompt: "sélectionne le parent d'accueil ici" %>
+
+    <strong>Ou</strong>
+    <td><%= link_to "Créer Informations de sa famille d'accueil ICI", new_hostparent_path %></td>
+
+  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <% if action_name=='new' %>
+
+      <%= form.submit 'noveau orphan',class:'btn btn-primary' %> ||
+      <%= link_to 'Retour', orphans_path,class:'btn btn-primary' %>
+
+      <% else %>
+      <%= form.submit 'Modifier',class:'btn btn-primary' %>
+      <% end %>
   </div>
 <% end %>

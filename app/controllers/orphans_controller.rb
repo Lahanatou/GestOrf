@@ -2,6 +2,7 @@ class OrphansController < ApplicationController
   before_action :set_orphan, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
+
   # GET /orphans or /orphans.json
   def index
     @orphans = Orphan.all.order(id: 'desc').page params[:page]
@@ -16,6 +17,7 @@ class OrphansController < ApplicationController
   def new
     @orphan = Orphan.new
     @hostparents = Hostparent.all.order(name: 'asc').page
+    @originalparents = Originalparent.all.order(name: 'asc').page
   end
 
   # GET /orphans/1/edit
@@ -25,6 +27,9 @@ class OrphansController < ApplicationController
   # POST /orphans or /orphans.json
   def create
     @orphan = Orphan.new(orphan_params)
+
+  #  @orphan = current_user.orphans.build(orphan_params)
+
 
     respond_to do |format|
       if @orphan.save
@@ -68,6 +73,6 @@ class OrphansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def orphan_params
-      params.require(:orphan).permit(:name, :description, :age, :image, :sex, :user_id, :hostparent_id)
-    end
+      params.require(:orphan).permit(:name, :description, :age, :image, :sex, :image, :image_cache)
+end
 end

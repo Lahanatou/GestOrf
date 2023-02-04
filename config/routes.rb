@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :originalparents
+  resources :hostparents
   root 'orphans#top'
   get 'orphans/top'
   resources :orphans
