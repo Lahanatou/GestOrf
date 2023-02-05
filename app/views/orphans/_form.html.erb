@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name , placeholder: "Le nom de l'orphelin ici" %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description , placeholder: "Ajouter une description" %>
   </div>
 
   <div class="field">
     <%= form.label :age %>
-    <%= form.number_field :age %>
+    <%= form.number_field :age , placeholder: "Ecrivez l'âge de l'enfant "%>
   </div>
 
   <div class="field">
@@ -35,14 +35,14 @@
 
   <div class="field">
     <%= form.label :sex %>
-    <%= form.text_field :sex %>
+    <%= form.text_field :sex , placeholder: "Ajouter le sexe de l'enfant"%>%>
   </div>
   <div class="field">
     <%= form.label :Information_sur_son_origine %>
     <%= form.select :originalparent_id, Originalparent.all.collect { |p| [p.name, p.id]}, class: "search_label form-control", prompt: "sélectionne le parent d'origine ici" %>
 
     <strong>Ou</strong>
-    <td><%= link_to "Créer Informations de sa famille d'origine ICI", new_originalparent_path %></td>
+    <td><%= link_to "Créer Informations de sa famille d'origine ICI", new_originalparent_path ,class:'fs-20 btn btn-outline-dark'%></td>
 
   </div>
 
@@ -52,7 +52,7 @@
     <%= form.select :hostparent_id, Hostparent.all.collect { |p| [p.name, p.id]}, class: "search_label form-control", prompt: "sélectionne le parent d'accueil ici" %>
 
     <strong>Ou</strong>
-    <td><%= link_to "Créer Informations de sa famille d'accueil ICI", new_hostparent_path %></td>
+    <td><%= link_to "Créer Informations de sa famille d'accueil ICI", new_hostparent_path ,class:'fs-20 btn btn-outline-dark'%></td>
 
   </div>
 

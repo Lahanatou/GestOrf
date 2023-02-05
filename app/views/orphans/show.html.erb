@@ -46,6 +46,16 @@
   <%= @orphan.sex %>
 </p>
 
+<p>
+  <strong>Originalparent:</strong>
+  <%= @orphan.originalparent.name %>
+</p>
 
-<%= link_to 'Edit', edit_orphan_path(@orphan) %> |
-<%= link_to 'Back', orphans_path %>
+<p>
+  <strong>Hostparent:</strong>
+  <%= @orphan.hostparent.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_orphan_path(@orphan),class:'btn btn-primary' %>|
+<%= link_to 'Back', orphans_path ,class:'fs-20 btn btn-success'%>

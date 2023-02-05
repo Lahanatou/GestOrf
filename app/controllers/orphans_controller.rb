@@ -5,6 +5,7 @@ class OrphansController < ApplicationController
 
   # GET /orphans or /orphans.json
   def index
+    #raise
     @orphans = Orphan.all.order(id: 'desc').page params[:page]
     @users = User.all
   end
@@ -26,6 +27,7 @@ class OrphansController < ApplicationController
 
   # POST /orphans or /orphans.json
   def create
+    #raise
     @orphan = Orphan.new(orphan_params)
 
   #  @orphan = current_user.orphans.build(orphan_params)
@@ -73,6 +75,6 @@ class OrphansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def orphan_params
-      params.require(:orphan).permit(:name, :description, :age, :image, :sex, :image, :image_cache)
+      params.require(:orphan).permit(:name, :description, :age, :image, :sex, :image, :image_cache, :originalparent_id, :hostparent_id)
 end
 end

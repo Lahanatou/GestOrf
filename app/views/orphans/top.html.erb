@@ -1,14 +1,18 @@
+
 <div class="col-sm-6">
   <div class="right-column text-center">
-      <p class="infos">
-        Bienvenu chez GestOrf, trouvez tous les renseignements dont vous avez bésoins ....
-      </p>
+
+      <Div STYLE="text-align:justify;">  <strong>
+        <h3>
+            Bienvenu chez GestOrf, une application de notre orphelinat pouvant vous permettre de nous suivre dans nos activités, de parrainer les orphelins, de faire des éventuels dons et pouvoir aussi adopter. Elle soutient le suivi socioprofessionnel des orphelins et offre un anonymat complet à ceux qui le souhaitent.
+
+          </h3>
+      </strong>   </Div>
+
+
       <hr>
-      <% if user_signed_in? %>
-      <%= link_to "Visiter", orphans_path, class:'fs-15 btn btn-warning' %>
-    <% else %>
-      <h6>Vous n'etes pas connecter, clique sur "Se connecter" ou créer un compte pour jouir de la platforme</h6>
-      <%= link_to "Me connecter", new_user_session_path, class:'fs-15 btn btn-warning' %>
-    <% end %>
+
+      <div class="sub_title"><h1>Cliquer sur Visiter pour vous identifier ou vous inscrire !!!!!</h1></div>
+      <%= link_to "Visiter", new_user_session_path, class:'fs-15 btn btn-warning' %>
   </div>
 </div>

@@ -1,29 +1,86 @@
 <h2>Sign up</h2>
+<style>
+
+.justifier {
+text-align: center;
+text-justify: inter-word;
+}
+
+.title {
+text-align: center;
+text-justify: inter-word;
+}
+</style>
+
+<div class="title"><h2><strong>Bienvenue à GestOrf</strong></h2>
+  <h4>
+    <div class="justifier"><h4>Veuillez entrer les informations neccessaires pour créer votre compte utilisateur.</h4>
+
+    </div>
+</h4>
+</div>
+
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.hidden_field :email ,value: "notreinvite@gmail.com" %>
+        <%= f.hidden_field :password ,value: "invite123456" %>
+      </div>
+      <div class="actions">
+
+          <%= f.submit "Cher(ère)s Invité(e)s!!! Connectez-vous", class: "btn btn-info" %>||||
+
+      </div>
+    <% end %>
+  </li>
+
+  <li class="nav-item">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.hidden_field :email ,value: "notreadmin@gmail.com" %>
+        <%= f.hidden_field :password ,value: "bossadmin123456" %>
+      </div>
+      <div class="actions">
+
+          <%= f.submit "Cher(ère)s Admin!!! Connectez-vous", class: "btn btn-info" %>
+
+      </div>
+
+  <% end %>
+  </li>
+    </ul>
+
+<h2>Inscription</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'example@gmail.com' %>
   </div>
 
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Au moins 6 caractères" %>
+
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Au moins 6 caractères" %>
+
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Enregistré(e)", class: "btn btn-primary" %>
   </div>
 <% end %>
-
 <%= render "devise/shared/links" %>
