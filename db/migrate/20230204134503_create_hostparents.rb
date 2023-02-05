@@ -5,8 +5,6 @@ class CreateHostparents < ActiveRecord::Migration[6.0]
       t.string :adress, null: false
       t.integer :phone, null: false
 
-      t.references :orphan, foreign_key: true
-      t.references :user, foreign_key: true
       t.timestamps
     end
   end
