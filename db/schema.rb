@@ -16,12 +16,8 @@ ActiveRecord::Schema.define(version: 2023_02_04_134530) do
     t.string "name", null: false
     t.string "adress", null: false
     t.integer "phone", null: false
-    t.integer "orphan_id"
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["orphan_id"], name: "index_hostparents_on_orphan_id"
-    t.index ["user_id"], name: "index_hostparents_on_user_id"
   end
 
   create_table "originalparents", force: :cascade do |t|
@@ -66,8 +62,6 @@ ActiveRecord::Schema.define(version: 2023_02_04_134530) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "hostparents", "orphans"
-  add_foreign_key "hostparents", "users"
   add_foreign_key "orphans", "hostparents"
   add_foreign_key "orphans", "originalparents"
   add_foreign_key "orphans", "users"
