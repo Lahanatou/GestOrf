@@ -65,9 +65,8 @@ text-justify: inter-word;
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-
+    <em>(<%= @minimum_password_length %>) caractères minimum</em>
     <% end %><br />
-
     <%= f.password_field :password, autocomplete: "new-password", placeholder: "Au moins 6 caractères" %>
 
   </div>

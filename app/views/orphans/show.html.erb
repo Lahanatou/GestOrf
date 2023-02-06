@@ -35,11 +35,10 @@
 
 <p>
   <strong>Image:</strong>
-  <%= image_tag @orphan.image.url %>
+  <% if @orphan.image_url %>
+    <%= image_tag @orphan.image.url %>
+  <% end %>
 </p>
-
-
-
 
 <p>
   <strong>Sex:</strong>
@@ -55,7 +54,6 @@
   <strong>Hostparent:</strong>
   <%= @orphan.hostparent.name %>
 </p>
-
 
 <%= link_to 'Edit', edit_orphan_path(@orphan),class:'btn btn-primary' %>|
 <%= link_to 'Back', orphans_path ,class:'fs-20 btn btn-success'%>

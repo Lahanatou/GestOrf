@@ -27,7 +27,8 @@
   </div>
 
   <div class="field">
-    <h3><%= form.label :image %></h3>
+    <%= form.label :image %>
+    <%= image_tag(@orphan.image.url) if @orphan.image && @orphan.image.url %>
 
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
@@ -35,15 +36,13 @@
 
   <div class="field">
     <%= form.label :sex %>
-    <%= form.text_field :sex , placeholder: "Ajouter le sexe de l'enfant"%>%>
+    <%= form.text_field :sex , placeholder: "Ajouter le sexe de l'enfant"%>
   </div>
   <div class="field">
     <%= form.label :Information_sur_son_origine %>
     <%= form.select :originalparent_id, Originalparent.all.collect { |p| [p.name, p.id]}, class: "search_label form-control", prompt: "sélectionne le parent d'origine ici" %>
-
     <strong>Ou</strong>
     <td><%= link_to "Créer Informations de sa famille d'origine ICI", new_originalparent_path ,class:'fs-20 btn btn-outline-dark'%></td>
-
   </div>
 
 
