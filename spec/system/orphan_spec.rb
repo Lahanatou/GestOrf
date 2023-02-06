@@ -37,95 +37,59 @@ RSpec.describe 'Oprhan management function', type: :system do
         select 'originalparent'
         select 'hostparent'
           click_button 'noveau orphan'
-
           click_on 'Back'
-
-          click_on 'Show'
-
        expect(page).to have_content 'Orphan'
       end
  end
 
 #***************************#
 
-  # describe "Fonction d'affichage détaillé" do
-  #   before do
-  #     user_login
-  #   end
-  #    context "Lorsque l'on passe à la modification de l'aliment en affichant l'écran de détails" do
-  #      it "Possibilité d'éditer le contenu" do
-  #
-  #           visit '/foods/new'
-  #         fill_in "food[name]", with: 'Pate blanche'
-  #         fill_in "food[description]", with: "Nouriture locale"
-  #         fill_in "food[price]", with: "5000"
-  #         select "mon restaurant"
-  #           click_button 'Créer un(e) Food'
-  #
-  #           click_on 'Retourner'
-  #
-  #           click_on 'Modifier'
-  #
-  #           click_on 'Retour'
-  #
-  #       expect(page).to have_content 'Food'
-  #      end
-  #    end
-  # end
+  describe "Fonction d'affichage détaillé" do
+    before do
+      user_login
+    end
+     context "Lorsque l'on passe à la modification de l'orphelin en affichant l'écran de détails" do
+       it "Possibilité d'éditer le contenu" do
+
+            visit '/orphans/new'
+          fill_in "orphan[name]", with: 'Test02'
+          fill_in "orphan[description]", with: "Test03"
+          fill_in "orphan[age]", with: "10"
+          fill_in "orphan[sex]", with: "F"
+          select 'originalparent'
+          select 'hostparent'
+            click_button 'noveau orphan'
+            click_on 'Edit'
+            click_on 'Modifier'
+            click_on 'Back'
+        expect(page).to have_content 'Orphan'
+       end
+     end
+  end
 
 #***************************#
 
-    # describe 'Fonction de suppression de contenue' do
-    #   before do
-    #     user_login
-    #   end
-    #    context "Lors de la transition vers l'écran de détails de l'aliment" do
-    #      it "Possibilité de supprimer un contenue" do
-    #
-    #           visit '/foods/new'
-    #         fill_in "food[name]", with: 'Pate'
-    #         fill_in "food[description]", with: "Locale"
-    #         fill_in "food[price]", with: "2500"
-    #         select "mon restaurant"
-    #           click_button 'Créer un(e) Food'
-    #
-    #           click_on 'Retourner'
-    #
-    #           click_on "Supprimer"
-    #             a = page.driver.browser.switch_to.alert
-    #             a.accept
-    #         expect(page).to have_content 'Food'
-    #      end
-    #    end
-    # end
+    describe "Fonction de suppression de contenue par l'administrateur" do
+      before do
+        admin_user_login
+      end
+       context "Lors de la transition vers l'écran de détails" do
+         it "Possibilité de supprimer un contenue" do
 
-#***************************#
-
-
-  # describe 'Fonction de commentaire de contenue' do
-  #   before do
-  #     user_login
-  #   end
-  #    context "Lors de la transition vers l'écran de détails pour commenter l'aliment" do
-  #      it "Possibilité de créer un commentaire" do
-  #
-  #           visit '/foods/new'
-  #         fill_in "food[name]", with: 'Pate'
-  #         fill_in "food[description]", with: "Locale"
-  #         fill_in "food[price]", with: "2500"
-  #         select "mon restaurant"
-  #           click_button 'Créer un(e) Food'
-  #
-  #           click_on 'Retourner'
-  #
-  #           click_on "Afficher"
-  #
-  #           fill_in "comment[content]", with: 'Pate'
-  #
-  #           click_on "Créer un(e) Comment"
-  #         expect(page).to have_content 'Food'
-  #      end
-  #    end
-  # end
-
+           visit '/orphans/new'
+         fill_in "orphan[name]", with: 'Test04'
+         fill_in "orphan[description]", with: "Test05"
+         fill_in "orphan[age]", with: "15"
+         fill_in "orphan[sex]", with: "F"
+         select 'originalparent'
+         select 'hostparent'
+           click_button 'noveau orphan'
+              click_on 'Back'
+              click_on "Destroy"
+                a = page.driver.browser.switch_to.alert
+                a.accept
+            expect(page).to have_content 'Orphan'
+         end
+       end
+    end
 end
