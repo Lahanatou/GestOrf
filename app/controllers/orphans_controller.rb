@@ -46,16 +46,16 @@ class OrphansController < ApplicationController
 
   # PATCH/PUT /orphans/1 or /orphans/1.json
   def update
-    respond_to do |format|
-      if @orphan.update(orphan_params)
-        format.html { redirect_to orphan_url(@orphan), notice: "Orphan was successfully updated." }
-        format.json { render :show, status: :ok, location: @orphan }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @orphan.errors, status: :unprocessable_entity }
-      end
+  respond_to do |format|
+    if @orphan.update(orphan_params)
+      format.html { redirect_to orphan_url(@orphan), notice: "Orphan was successfully updated." }
+      format.json { render :show, status: :ok, location: @orphan }
+    else
+      format.html { render :edit, status: :unprocessable_entity }
+      format.json { render json: @orphan.errors, status: :unprocessable_entity }
     end
   end
+end
 
   # DELETE /orphans/1 or /orphans/1.json
   def destroy
