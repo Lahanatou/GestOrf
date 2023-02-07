@@ -17,7 +17,7 @@ RSpec.describe Orphan, type: :model do
     @originalparent = Originalparent.create!(name: 'originalparent', description: 'cotonou', phone: '12345678')
     @hostparent = Hostparent.create!(name: 'hostparent', adress: 'cotonou1', phone: '88795543')
 
-    orphan = Orphan.new(name: 'Test1', description: 'Bienvenue', originalparent: @originalparent, hostparent: @hostparent)
+    orphan = Orphan.new(name: 'Test1', description: 'Bienvenue', sex: 'M', age: '10', originalparent: @originalparent, hostparent: @hostparent)
     expect(orphan).to be_valid
   end
 

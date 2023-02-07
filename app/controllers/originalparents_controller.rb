@@ -3,7 +3,7 @@ class OriginalparentsController < ApplicationController
 
   # GET /originalparents or /originalparents.json
   def index
-    @originalparents = Originalparent.all
+    @originalparents = Originalparent.all.order(id: 'desc').page params[:page]
   end
 
   # GET /originalparents/1 or /originalparents/1.json
@@ -25,7 +25,7 @@ class OriginalparentsController < ApplicationController
 
     respond_to do |format|
       if @originalparent.save
-        format.html { redirect_to originalparent_url(@originalparent), notice: "Originalparent was successfully created." }
+        format.html { redirect_to originalparent_url(@originalparent), notice: "Le parent d'origine a été bien enregistré." }
         format.json { render :show, status: :created, location: @originalparent }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class OriginalparentsController < ApplicationController
   def update
     respond_to do |format|
       if @originalparent.update(originalparent_params)
-        format.html { redirect_to originalparent_url(@originalparent), notice: "Originalparent was successfully updated." }
+        format.html { redirect_to originalparent_url(@originalparent), notice: "Les informations de ce parent d'origine ont été modifées." }
         format.json { render :show, status: :ok, location: @originalparent }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class OriginalparentsController < ApplicationController
     @originalparent.destroy
 
     respond_to do |format|
-      format.html { redirect_to originalparents_url, notice: "Originalparent was successfully destroyed." }
+      format.html { redirect_to originalparents_url, notice: "Cet parent d'origine a été supprimé." }
       format.json { head :no_content }
     end
   end

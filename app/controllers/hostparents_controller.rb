@@ -3,7 +3,7 @@ class HostparentsController < ApplicationController
 
   # GET /hostparents or /hostparents.json
   def index
-    @hostparents = Hostparent.all
+    @hostparents = Hostparent.all.order(id: 'desc').page params[:page]
   end
 
   # GET /hostparents/1 or /hostparents/1.json
@@ -25,7 +25,7 @@ class HostparentsController < ApplicationController
 
     respond_to do |format|
       if @hostparent.save
-        format.html { redirect_to hostparent_url(@hostparent), notice: "Hostparent was successfully created." }
+        format.html { redirect_to hostparent_url(@hostparent), notice: "Le parent d'accueil a été bien enregistré." }
         format.json { render :show, status: :created, location: @hostparent }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class HostparentsController < ApplicationController
   def update
     respond_to do |format|
       if @hostparent.update(hostparent_params)
-        format.html { redirect_to hostparent_url(@hostparent), notice: "Hostparent was successfully updated." }
+        format.html { redirect_to hostparent_url(@hostparent), notice: "Les informations de ce parent d'accueil ont été modifées." }
         format.json { render :show, status: :ok, location: @hostparent }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class HostparentsController < ApplicationController
     @hostparent.destroy
 
     respond_to do |format|
-      format.html { redirect_to hostparents_url, notice: "Hostparent was successfully destroyed." }
+      format.html { redirect_to hostparents_url, notice: "Ce parent d'accueil a été supprimé." }
       format.json { head :no_content }
     end
   end

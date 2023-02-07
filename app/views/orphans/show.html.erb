@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 <style>
   strong{
     font-size: 20px;
@@ -19,7 +19,7 @@
   <div class="card container">
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nom et Prénoms:</strong>
   <%= @orphan.name %>
 </p>
 
@@ -29,30 +29,32 @@
 </p>
 
 <p>
-  <strong>Age:</strong>
+  <strong>Âge:</strong>
   <%= @orphan.age %>
 </p>
 
 <p>
   <strong>Image:</strong>
+  <% if @orphan.image_url %>
   <%= image_tag @orphan.image.url %>
+  <% end %>
 </p>
 
 
 <p>
-  <strong>Sex:</strong>
+  <strong>Sexe:</strong>
   <%= @orphan.sex %>
 </p>
 
 <p>
-  <strong>Originalparent:</strong>
+  <strong>Parent d'origine:</strong>
   <%= @orphan.originalparent.name %>
 </p>
 
 <p>
-  <strong>Hostparent:</strong>
+  <strong>Parent d'accueil:</strong>
   <%= @orphan.hostparent.name %>
 </p>
 
-<%= link_to 'Edit', edit_orphan_path(@orphan),class:'btn btn-primary' %>|
-<%= link_to 'Back', orphans_path ,class:'fs-20 btn btn-success'%>
+<%= link_to 'Modifier', edit_orphan_path(@orphan) %>|
+<%= link_to 'Retour', orphans_path %>

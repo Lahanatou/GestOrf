@@ -35,7 +35,7 @@ class OrphansController < ApplicationController
 
     respond_to do |format|
       if @orphan.save
-        format.html { redirect_to orphan_url(@orphan), notice: "Orphan was successfully created." }
+        format.html { redirect_to orphan_url(@orphan), notice: "L'orphelin a été bien enregistré." }
         format.json { render :show, status: :created, location: @orphan }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -48,7 +48,7 @@ class OrphansController < ApplicationController
   def update
   respond_to do |format|
     if @orphan.update(orphan_params)
-      format.html { redirect_to orphan_url(@orphan), notice: "Orphan was successfully updated." }
+      format.html { redirect_to orphan_url(@orphan), notice: "Les informations de cet orphelin ont été modifées." }
       format.json { render :show, status: :ok, location: @orphan }
     else
       format.html { render :edit, status: :unprocessable_entity }
@@ -62,7 +62,7 @@ end
     @orphan.destroy
 
     respond_to do |format|
-      format.html { redirect_to orphans_url, notice: "Orphan was successfully destroyed." }
+      format.html { redirect_to orphans_url, notice: "Cet orphelin a été supprimé." }
       format.json { head :no_content }
     end
   end

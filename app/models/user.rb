@@ -6,4 +6,5 @@ class User < ApplicationRecord
   #has_many :hostparents, dependent: :destroy
   has_many :orphans, dependent: :destroy
 #  has_many :originalparents, dependent: :destroy
+paginates_per 10
 end

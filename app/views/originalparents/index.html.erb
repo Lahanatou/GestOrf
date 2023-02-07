@@ -18,8 +18,8 @@
         <td><%= originalparent.name %></td>
         <td><%= originalparent.description %></td>
         <td><%= originalparent.phone %></td>
-        <td><%= link_to 'Show', originalparent %></td>
-        <td><%= link_to 'Edit', edit_originalparent_path(originalparent) %></td>
+        <td><%= link_to 'Détails', originalparent %></td>
+        <td><%= link_to 'Modifier', edit_originalparent_path(originalparent) %></td>
         <td><%= link_to 'Supprimer', originalparent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
 
@@ -29,4 +29,5 @@
 
 <br>
 
-<%= link_to 'New Originalparent', new_originalparent_path %>
+<%= link_to "Créer nouveau parent d'origine", new_originalparent_path %>
+<%= paginate @originalparents %>

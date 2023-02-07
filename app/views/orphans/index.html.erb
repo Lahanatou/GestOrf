@@ -2,7 +2,7 @@
 
 <table>
   <thead>
-    <h1>Orphan</h1>
+    <h1>Liste des Orphelins</h1>
     <tr>
       <th>Nom</th>
       <th>Description</th>
@@ -32,14 +32,14 @@
             <td><%= orphan.sex %></td>
             <td><%= orphan.originalparent.name %></td>
               <td><%= orphan.hostparent.name %></td>
-            <td><%= link_to 'Show', orphan , class: 'btn btn-warning text-light'%></td>
-            <td><%= link_to 'Edit', edit_orphan_path(orphan), class: 'btn btn-success text-light' %></td>
-            <td><%= link_to 'Destroy', orphan, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-light' %></td>
+            <td><%= link_to 'Détails', orphan , class: 'btn btn-warning text-light'%></td>
+            <td><%= link_to 'Modifier', edit_orphan_path(orphan) %></td>
+            <td><%= link_to 'Supprimer', orphan, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-light' %></td>
             <% if orphan.originalparent_id==nil %>
               <td><%= link_to 'Renseigner originalparents', new_originalparent_path %></td>
             <% else %>
-              <td><%= link_to 'Original parent informations',  originalparent_path(orphan.originalparent), class: 'btn btn-info text-light'%></td>
-              <td><%= link_to 'Host parent informations', hostparent_path(orphan.hostparent), class: 'btn btn-info text-light'%></td>
+              <td><%= link_to "Informations du parent d'origine",  originalparent_path(orphan.originalparent), class: 'btn btn-info text-light'%></td>
+              <td><%= link_to "Informations du parent d'accueil", hostparent_path(orphan.hostparent), class: 'btn btn-info text-light'%></td>
             <% end %>
         <% else %>
           <td><%= orphan.name %></td>
@@ -51,7 +51,7 @@
              <%= image_tag orphan.image.url, class: "im_prod" %></td>
              <% end %>
           <td><%= orphan.sex %></td>
-          <td><%= link_to 'Show', orphan %></td>
+          <td><%= link_to 'Détails', orphan %></td>
         <% end %>
       <% end %>
       </tr>
@@ -61,4 +61,5 @@
 
 <br>
 
-<%= link_to 'New Orphan', new_orphan_path , class: "btn btn-outline-primary"%>
+<%= link_to 'Créer un orphelin', new_orphan_path , class: "btn btn-outline-primary"%>
+<%= paginate @orphans %>

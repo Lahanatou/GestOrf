@@ -18,9 +18,9 @@
         <td><%= hostparent.name %></td>
         <td><%= hostparent.adress %></td>
         <td><%= hostparent.phone %></td>
-        <td><%= link_to 'Show', hostparent %></td>
-        <td><%= link_to 'Edit', edit_hostparent_path(hostparent) %></td>
-        <td><%= link_to 'Destroy', hostparent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Détails', hostparent %></td>
+        <td><%= link_to 'Modifier', edit_hostparent_path(hostparent) %></td>
+        <td><%= link_to 'Supprimer', hostparent, method: :delete, data: { confirm: 'êtes vous sûrs?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Hostparent', new_hostparent_path %>
+<%= link_to "Créer nouveau parent d'accueil", new_hostparent_path %>
+<%= paginate @hostparents %>

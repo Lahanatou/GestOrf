@@ -19,6 +19,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'rexml'
 gem 'devise'
+gem 'rails_admin-i18n'
+gem 'i18n_generators'
+gem 'kaminari'
 gem 'rails_admin', '~> 3.0'
 gem 'cancancan', '~> 3.3.0'
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -32,7 +35,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'launchy'
-  gem 'capybara', '>= 2.15'
+  #gem 'capybara', '>= 2.15'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

@@ -128,7 +128,7 @@ user = User.create(
         description:"description",
         age:"age",
         image:"image",
-        sex:"sex",
+        sex:"sexe",
         originalparent: @originalparent,
         hostparent: @hostparent,
         user_id: 2
@@ -139,7 +139,7 @@ user = User.create(
             description:"description1",
             age:"age1",
             image:"image1",
-            sex:"sex1",
+            sex:"sexe1",
             originalparent: @originalparent1,
             hostparent: @hostparent1,
             user_id: 2
@@ -150,7 +150,7 @@ user = User.create(
                 description:"description2",
                 age:"age2",
                 image:"image2",
-                sex:"sex2",
+                sex:"sexe2",
                 originalparent: @originalparent2,
                 hostparent: @hostparent2,
                 user_id: 3
@@ -161,7 +161,7 @@ user = User.create(
                     description:"description3",
                     age:"age3",
                     image:"image3",
-                    sex:"sex3",
+                    sex:"sexe3",
                     originalparent: @originalparent3,
                     hostparent: @hostparent3,
                     user_id: 3
@@ -172,7 +172,7 @@ user = User.create(
                         description:"description4",
                         age:"age4",
                         image:"image4",
-                        sex:"sex4",
+                        sex:"sexe4",
                         originalparent: @originalparent4,
                         hostparent: @hostparent4,
                         user_id: 4
@@ -183,7 +183,7 @@ user = User.create(
                             description:"description5",
                             age:"age5",
                             image:"image5",
-                            sex:"sex5",
+                            sex:"sexe5",
                             originalparent: @originalparent5,
                             hostparent: @hostparent5,
                             user_id: 4
