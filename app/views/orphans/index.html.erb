@@ -1,65 +1,66 @@
 <p id="notice"><%= notice %></p>
-
-<table>
-  <thead>
-    <h1>Liste des Orphelins</h1>
-    <tr>
-      <th>Nom</th>
-      <th>Description</th>
-      <th>Âge</th>
-      <th>Photo</th>
-      <th>Sexe</th>
-      <th>Nom du parent d'origine</th>
-      <th>Nom du parent d'accueil</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orphans.each do |orphan| %>
+<div class="container">
+  <table>
+    <thead>
+      <h1>Liste des Orphelins</h1>
       <tr>
-        <% if user_signed_in? %>
-          <% if current_user.admin?%>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Âge</th>
+        <th>Photo</th>
+        <th>Sexe</th>
+        <th>Nom du parent d'origine</th>
+        <th>Nom du parent d'accueil</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @orphans.each do |orphan| %>
+        <tr>
+          <% if user_signed_in? %>
+            <% if current_user.admin?%>
+              <td><%= orphan.name %></td>
+              <td><%= orphan.description %></td>
+              <td><%= orphan.age %></td>
+              <td>
+                 <% if orphan.image.file.nil? %>
+                 <% else %>
+                 <%= image_tag orphan.image.url, class: "im_prod" %>
+                 <% end %>
+              </td>
+              <td><%= orphan.sex %></td>
+              <td><%= orphan.originalparent.name %></td>
+                <td><%= orphan.hostparent.name %></td>
+              <td><%= link_to 'Détails', orphan %></td>
+              <td><%= link_to 'Modifier', edit_orphan_path(orphan) %></td>
+              <td><%= link_to 'Supprimer', orphan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% if orphan.originalparent_id==nil %>
+                <td><%= link_to 'Renseigner originalparents', new_originalparent_path %></td>
+              <% else %>
+                <td><%= link_to "Informations du parent d'origine",  originalparent_path(orphan.originalparent), class: 'btn btn-info text-light'%></td>
+                <td><%= link_to "Informations du parent d'accueil", hostparent_path(orphan.hostparent), class: 'btn btn-info text-light'%></td>
+              <% end %>
+          <% else %>
             <td><%= orphan.name %></td>
             <td><%= orphan.description %></td>
             <td><%= orphan.age %></td>
             <td>
                <% if orphan.image.file.nil? %>
                <% else %>
-               <%= image_tag orphan.image.url, class: "im_prod" %>
+               <%= image_tag orphan.image.url, class: "im_prod" %></td>
                <% end %>
-            </td>
             <td><%= orphan.sex %></td>
-            <td><%= orphan.originalparent.name %></td>
-              <td><%= orphan.hostparent.name %></td>
-            <td><%= link_to 'Détails', orphan , class: 'btn btn-warning text-light'%></td>
-            <td><%= link_to 'Modifier', edit_orphan_path(orphan) %></td>
-            <td><%= link_to 'Supprimer', orphan, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-light' %></td>
-            <% if orphan.originalparent_id==nil %>
-              <td><%= link_to 'Renseigner originalparents', new_originalparent_path %></td>
-            <% else %>
-              <td><%= link_to "Informations du parent d'origine",  originalparent_path(orphan.originalparent), class: 'btn btn-info text-light'%></td>
-              <td><%= link_to "Informations du parent d'accueil", hostparent_path(orphan.hostparent), class: 'btn btn-info text-light'%></td>
-            <% end %>
-        <% else %>
-          <td><%= orphan.name %></td>
-          <td><%= orphan.description %></td>
-          <td><%= orphan.age %></td>
-          <td>
-             <% if orphan.image.file.nil? %>
-             <% else %>
-             <%= image_tag orphan.image.url, class: "im_prod" %></td>
-             <% end %>
-          <td><%= orphan.sex %></td>
-          <td><%= link_to 'Détails', orphan %></td>
+            <td><%= link_to 'Détails', orphan %></td>
+          <% end %>
         <% end %>
+        </tr>
       <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
+  <br>
+</div>
 
-<%= link_to 'Créer un orphelin', new_orphan_path , class: "btn btn-outline-primary"%>
+<button><%= link_to 'Créer un orphelin', new_orphan_path , class: "btn btn-outline-primary"%></button>
 <%= paginate @orphans %>

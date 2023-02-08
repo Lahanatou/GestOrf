@@ -10,58 +10,53 @@
       </ul>
     </div>
   <% end %>
+  <div class="container">
+    <div class="field">
+      <%= form.label :Nom %>
+      <%= form.text_field :name , placeholder: "Le nom de l'orphelin ici" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name , placeholder: "Le nom de l'orphelin ici" %>
+    <div class="field">
+      <%= form.label :Description %>
+      <%= form.text_field :description , placeholder: "Ajouter une description" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :âge %>
+      <%= form.number_field :age , placeholder: "Ecrivez l'âge de l'enfant "%>
+    </div>
+
+    <div class="field">
+      <h3><%= form.label :Image %></h3>
+
+      <%= form.file_field :image %>
+      <%= form.hidden_field :image_cache %>
+    </div>
+
+    <div class="field">
+      <%= form.label :Sexe %>
+      <%= form.text_field :sex , placeholder: "Ajouter le sexe de l'enfant"%>
+    </div>
+    <div class="field">
+      <%= form.label :Information_sur_son_origine %>
+      <%= form.select :originalparent_id, Originalparent.all.collect { |p| [p.name, p.id]}, class: "search_label form-control", prompt: "sélectionne le parent d'origine ici" %>
+      <strong>Ou</strong>
+      <td><%= link_to "Créer Informations de sa famille d'origine ICI", new_originalparent_path ,class:'fs-20 btn btn-outline-dark'%></td>
+    </div>
+
+
+    <div class="field">
+      <%= form.label :Information_sur_sa_destination %>
+      <%= form.select :hostparent_id, Hostparent.all.collect { |p| [p.name, p.id]}, class: "search_label form-control", prompt: "sélectionne le parent d'accueil ici" %>
+
+      <strong>Ou</strong>
+      <td><%= link_to "Créer Informations de sa famille d'accueil ICI", new_hostparent_path ,class:'fs-20 btn btn-outline-dark'%></td>
+
+    </div>
+
+    <div class="actions">
+        <%= form.submit %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description , placeholder: "Ajouter une description" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :age %>
-    <%= form.number_field :age , placeholder: "Ecrivez l'âge de l'enfant "%>
-  </div>
-
-  <div class="field">
-    <h3><%= form.label :image %></h3>
-
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sex %>
-    <%= form.text_field :sex , placeholder: "Ajouter le sexe de l'enfant"%>
-  </div>
-  <div class="field">
-    <%= form.label :Information_sur_son_origine %>
-    <%= form.select :originalparent_id, Originalparent.all.collect { |p| [p.name, p.id]}, class: "search_label form-control", prompt: "sélectionne le parent d'origine ici" %>
-    <strong>Ou</strong>
-    <td><%= link_to "Créer Informations de sa famille d'origine ICI", new_originalparent_path ,class:'fs-20 btn btn-outline-dark'%></td>
-  </div>
-
-
-  <div class="field">
-    <%= form.label :Information_sur_sa_destination %>
-    <%= form.select :hostparent_id, Hostparent.all.collect { |p| [p.name, p.id]}, class: "search_label form-control", prompt: "sélectionne le parent d'accueil ici" %>
-
-    <strong>Ou</strong>
-    <td><%= link_to "Créer Informations de sa famille d'accueil ICI", new_hostparent_path ,class:'fs-20 btn btn-outline-dark'%></td>
-
-  </div>
-
-  <div class="actions">
-    <% if action_name=='new' %>
-
-      <%= form.submit 'Créer nouvel orphelin' %> ||
-      <%= link_to 'Retour', orphans_path,class:'btn btn-primary' %>
-
-      <% else %>
-      <%= form.submit 'Modifier' %>
-      <% end %>
-  </div>
 <% end %>
