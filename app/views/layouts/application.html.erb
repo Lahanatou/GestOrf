@@ -55,27 +55,10 @@
           <li class="nav-item">
             <a class="nav-link active" href="#"><%= link_to "Liste des orphelins", orphans_path ,class:'fs-20 btn btn-outline-dark'%></a>||
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link active" href="#"><%= link_to "Faites vos dons", "#"  ,class:'fs-20 btn btn-outline-dark'%></a>||
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link active" href="#"><%= link_to "Parrainage","#" ,class:'btn fs-20 btn-outline-dark'%></a>||
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link active" href="#"><%= link_to "Adoption", "#" ,class:'btn fs-20 btn-outline-dark'%></a>||
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link active" href="#"><%= link_to "Envoyer nous un message","#" ,class:'btn fs-20 btn-outline-dark'%></a>||
-          </li>
-
           <li class="nav-item">
             <a class="nav-link active" href="#"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete ,class:'btn fs-20 btn-outline-dark',id: "déconnecter" %></a>
           </li>
-</ul>
+        </ul>
 
   <% end %>
 
@@ -96,8 +79,17 @@
     </header>
 
 
-<br><br>
-   <%= yield %>
+    <br><br>
+
+
+       <% if notice %>
+        <p class="alert alert-notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-error"><%= alert %></p>
+      <% end %>
+
+       <%= yield %>
   <footer class="footer">
     <p>&copy; GestOrf 2023. All Rights Reserved/Lahanatou KPERA</p>
   </footer>
