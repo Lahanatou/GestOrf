@@ -62,7 +62,19 @@
 
   <% end %>
 
-  
+  <% else %>
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link active" href="#"><%= link_to "Nouvel enregistrement", new_user_registration_path ,class:'fs-20 btn btn-outline-dark'%></a>||
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="#"><%= link_to "Connexion", new_user_session_path ,class:'fs-20 btn btn-outline-dark'%></a>
+          </li>
+  <% end %>
+
+
+            </ul>
         </div>
     </header>
 
