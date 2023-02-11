@@ -1,0 +1,47 @@
+fr:
+  activerecord:
+    models:
+      originalparent: "Parent d'origine"
+      hostparent: "Parent d'accueil"
+      orphan: "Orphelin"
+      user: "Utilisateur"
+
+    attributes:
+      orphan:
+        name: "Nom" #g
+        description: "Description" #g
+        age: "Âge" #g
+        sex: "Sexe " #g
+        image: "Image" #g
+        originalparent_id: "Informations du Parent d'origine"
+        user: :"activerecord.models.user" #g
+
+      originalparent:
+        name: "Nom" #g
+        description: "Description" #g
+        phone: "Numéro de téléphone" #g
+
+
+      hostparent:
+        name: "Nom" #g
+        adress: "Adresse" #g
+        phone: "Numéro de téléphone" #g
+
+      user:
+        authentication_token: "Jeton d'authentification" #g
+        confirmation_sent_at: "Confirmation envoyée à" #g
+        confirmation_token: "Jeton de confirmation" #g
+        confirmed_at: "Confirmé à" #g
+        current_sign_in_at: "Connexion actuelle à" #g
+        current_sign_in_ip: "IP de connexion actuelle" #g
+        email: "E-mail" #g
+        encrypted_password: "Mot de passe crypté" #g
+        name: "nom" #g
+        admin: "administrateur" #g
+        last_sign_in_at: "Dernière connexion à" #g
+        last_sign_in_ip: "Dernière connexion IP" #g
+        phone_number: "Numéro de téléphone" #g
+        remember_created_at: "Rappelez-vous créé à" #g
+        reset_password_sent_at: "Réinitialiser le mot de passe envoyé à" #g
+        reset_password_token: "Réinitialiser le jeton de mot de passe" #g
+        unconfirmed_email: "E-mail non confirmé" #g
