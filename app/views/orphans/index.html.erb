@@ -60,7 +60,7 @@
   </table>
 
   <br>
-</div>
-
-<button><%= link_to 'Créer un orphelin', new_orphan_path , class: "btn btn-outline-primary"%></button>
+  <% if current_user.admin?%>
+  <%= link_to 'Créer un orphelin', new_orphan_path , class: "btn btn-outline-primary"%>
+  <% end %>
 <%= paginate @orphans %>

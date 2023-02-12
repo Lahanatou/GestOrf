@@ -52,5 +52,10 @@
   <%= @orphan.hostparent.name %>
 </p>
 </div>
-<%= link_to 'Modifier', edit_orphan_path(@orphan) %> | <%= link_to 'Retour', orphans_path %>
+<% if current_user.admin?%>
+<%= link_to 'Modifier', edit_orphan_path(@orphan),class:'btn btn-primary'  %> <br>
+<%= link_to 'Retour', orphans_path ,class:'fs-20 btn btn-success'%>
+  <% else %>
+<%= link_to 'Retour', orphans_path ,class:'fs-20 btn btn-success'%>
+<% end %>
 <hr>
